@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    padding: 40px;
+}
+
+h1 {
+    color: #1f4e79;
+}
+
+button {
+    background-color: #1f4e79;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #15395a;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.success {
+    color: green;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.metric {
+    font-size: 30px;
+    font-weight: bold;
+    color: #1f4e79;
+}
+
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.signal-short {
+    font-size: 30px;
+    font-weight: bold;
+    color: #1f4e79;
+}
+
+.zone-short {
+    color: #1f4e79;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.gauge {
+    display: flex;
+    width: 250px;
+    height: 20px;
+    margin-top: 15px;
+}
+
+.gauge-green {
+    background-color: #2ecc71;
+    width: 33%;
+}
+
+.gauge-yellow {
+    background-color: #f1c40f;
+    width: 34%;
+}
+
+.gauge-red {
+    background-color: #e74c3c;
+    width: 33%;
+}
+
+.gauge-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.selected-pair {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    width: fit-content;
+}
+
+.pair-name {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1f4e79;
+    margin-top: 10px;
+}
+
+.selection-panel {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    width: 300px;
+}
+
+.gauge-value {
+    text-align: center;
+    color: #1f4e79;
+    font-weight: bold;
+}
+
+.gauge-value {
+    text-align: center;
+    color: #1f4e79;
+    font-weight: bold;
+}
+
+.gauge-indicator {
+    width: 250px;
+    margin-bottom: 5px;
+}
+
+.arrow-short {
+    margin-left: 190px;
+    color: #1f4e79;
+    font-weight: bold;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pair Trading Decision Engine</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>📈 Pair Trading Decision Engine</h1>
+    <div class="selected-pair">
+
+        Selected Pair
+
+        <div class="pair-name">
+            {{ pair }}
+        </div>
+
+    <div class="selection-panel">
+
+    <h2>📋 Pair Selection</h2>
+
+    <label for="stock1">Stock 1:</label>
+
+    <form action="/dashboard" method="post">
+
+    <select name="stock1" id="stock1">
+        <option {% if stock1 == "AMZN" %}selected{% endif %}>AMZN</option>
+
+        <option {% if stock1 == "META" %}selected{% endif %}>META</option>
+
+        <option {% if stock1 == "MSFT" %}selected{% endif %}>MSFT</option>
+
+        <option {% if stock1 == "NVDA" %}selected{% endif %}>NVDA</option>
+
+        <option {% if stock1 == "AAPL" %}selected{% endif %}>AAPL</option>
+
+        <option {% if stock1 == "GOOGL" %}selected{% endif %}>GOOGL</option>
+    </select>
+
+    <br><br>
+
+    <label for="stock2">Stock 2:</label>
+
+    <select name="stock2" id="stock2">
+        <option {% if stock2 == "META" %}selected{% endif %}>META</option>
+
+        <option {% if stock2 == "AMZN" %}selected{% endif %}>AMZN</option>
+
+        <option {% if stock2 == "MSFT" %}selected{% endif %}>MSFT</option>
+
+        <option {% if stock2 == "NVDA" %}selected{% endif %}>NVDA</option>
+
+        <option {% if stock2 == "AAPL" %}selected{% endif %}>AAPL</option>
+
+        <option {% if stock2 == "GOOGL" %}selected{% endif %}>GOOGL</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">
+        Analyze Pair
+    </button>
+    </form>
+    </div>
+
+<div class="dashboard">
+
+    <div class="card">
+    <h2>{{ status_icon }} Cointegration Status</h2>
+    <p><strong>Pair:</strong> {{ pair }} </p>
+    <p><strong>ADF p-value:</strong> {{ p_value }} </p>
+    <p class="success">{{ status }}</p>
+    </div>
+
+    <div class="card">
+    <h2>📊 Current Spread</h2>
+       <p class="metric">
+        {{ latest_spread }}
+        </p>
+    </div>
+
+    <div class="card">
+    <h2>📈 Current Z-Score</h2>
+    <p class="metric">
+    {{ latest_z_score }}
+    </p>
+    </div>
+
+    <div class="card">
+    <h2>🔴 Trading Signal</h2>
+    <p style="color:#1f4e79; font-size:36px; font-weight:bold;">
+    {{ signal }}
+    </p>
+    <p>
+    {{ signal_reason }}
+    </p>
+    </div>
+
+    <div class="card">
+    <h2>🎯 Mean Reversion Indicator</h2>
+    <p>
+    <strong>Long Threshold:</strong> {{ long_threshold }}
+    </p>
+    <p>
+    <strong>Current Z-Score:</strong> {{ latest_z_score }}
+    </p>
+    <p>
+    <strong>Short Threshold:</strong> {{ short_threshold }}
+    </p>
+    <p>
+    Current Position:
+    </p>
+    <p class="zone-short">
+    {{ signal }}
+    </p>
+
+    <div class="gauge-indicator">
+
+    {% if signal == "LONG SPREAD" %}
+
+        <span style="margin-left:20px;">▼</span>
+
+    {% elif signal == "NO SIGNAL" %}
+
+        <span style="margin-left:100px;">▼</span>
+
+    {% elif signal == "SHORT SPREAD" %}
+
+        <span style="margin-left:190px;">▼</span>
+
+    {% endif %}
+
+</div>
+
+    <div class="gauge">
+
+    <div class="gauge-green"></div>
+
+    <div class="gauge-yellow"></div>
+
+    <div class="gauge-red"></div>
+
+    </div>
+
+</div>
+</body>
+</html>
