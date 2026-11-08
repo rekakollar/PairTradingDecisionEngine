@@ -218,6 +218,22 @@ def dashboard_analysis(
         stock1=stock1,
         stock2=stock2
     )
+    
+    if stock1 == stock2:
+
+        return templates.TemplateResponse(
+            request=request,
+            name="dashboard.html",
+            context={
+                "request": request,
+                "pair": "",
+                "stock1": stock1,
+                "stock2": stock2,
+                "status": "INVALID PAIR",
+                "status_icon": "⚠️",
+                "message": "Please select two different stocks."
+                }
+            )
 
     results = analyze_pair(pair)
 
