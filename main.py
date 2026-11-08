@@ -45,9 +45,7 @@ def home(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="dashboard.html",
-        context={
-            "latest_spread": 0.2935
-        }
+        context={}
     )
 
 
